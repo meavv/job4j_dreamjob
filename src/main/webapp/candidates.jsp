@@ -35,17 +35,27 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">Названия</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Фото</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${candidates}" var="candidate">
                         <tr>
                             <td>
-                                <a href='<c:url value="/post/edit.jsp?id=${candidate.id}"/>'>
+                                <a href='<c:url value="/candidate/edit.jsp?id=${candidate.id}"/>'>
                                     <i class="fa fa-edit mr-3"></i>
                                 </a>
                                 <c:out value="${candidate.name}"/>
+                            </td>
+                            <td>
+                                <img src="<c:url value='/download?name=${candidate.id}.jpeg'/>" width="100px" height="100px"/>
+                                <a href='<c:url value="/PhotoUpload.jsp?id=${candidate.id}"/>'>
+                                    <img src="https://img.icons8.com/ios/50/000000/add--v2.png" width="25px" height="25px"/>
+                                </a>
+                                <a href='<c:url value="/del.jsp?id=${candidate.id}"/>'>
+                                    <img src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png"/>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>
