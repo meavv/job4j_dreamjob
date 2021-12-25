@@ -50,7 +50,7 @@
                             </td>
                             <td>
                                 <img src="<c:url value='/download?name=${candidate.id}.jpeg'/>" width="100px" height="100px"/>
-                                <a href='<c:url value="/PhotoUpload.jsp?id=${candidate.id}"/>'>
+                                <a href='<c:url value="/upload.jsp?id=${candidate.id}"/>'>
                                     <img src="https://img.icons8.com/ios/50/000000/add--v2.png" width="25px" height="25px"/>
                                 </a>
                                 <a href='<c:url value="/del.jsp?id=${candidate.id}"/>'>
