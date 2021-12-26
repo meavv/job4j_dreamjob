@@ -52,7 +52,7 @@
         </tbody>
     </table>
     <h2>Upload image</h2>
-    <form action='<c:url value='/upload?id=<%=id%>'/>' method="post" enctype="multipart/form-data">
+    <form action="<%=request.getContextPath()%>/upload?id=<%=id%>" method="post" enctype="multipart/form-data">
         <div class="checkbox">
             <input type="file" name="file">
         </div>
