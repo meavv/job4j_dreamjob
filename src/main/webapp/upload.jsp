@@ -38,6 +38,7 @@
         <tr>
             <th>URL</th>
             <th>View</th>
+            <th><a href="<c:url value='/candidates.do'/>">Кандидаты</a></th>
         </tr>
         </thead>
         <tbody>
