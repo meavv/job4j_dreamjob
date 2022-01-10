@@ -11,6 +11,7 @@ public class Candidate {
         this.name = name;
     }
 
+
     public int getId() {
         return id;
     }
@@ -22,6 +23,7 @@ public class Candidate {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
