@@ -5,7 +5,7 @@ import ru.job4j.dream.model.Post;
 
 public class MainStore {
     public static void main(String[] args) {
-        Store store = DbStore.instOf();
+        Store store = DBStore.instOf();
         for (Candidate candidate : store.findAllCandidates()) {
             System.out.println(candidate.getId() + " " + candidate.getName());
         }

@@ -17,16 +17,16 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class DbStore implements Store {
+public class DBStore implements Store {
 
     private final BasicDataSource pool = new BasicDataSource();
     private static final Logger LOG = Logger.getLogger("name");
 
-    private DbStore() {
+    private DBStore() {
         Properties cfg = new Properties();
         try (BufferedReader io = new BufferedReader(
                 new InputStreamReader(
-                        DbStore.class.getClassLoader()
+                        DBStore.class.getClassLoader()
                                 .getResourceAsStream("db.properties")
                 )
         )) {
@@ -49,7 +49,7 @@ class DbStore implements Store {
     }
 
     private static final class Lazy {
-        private static final Store INST = new DbStore();
+        private static final Store INST = new DBStore();
     }
 
     public static Store instOf() {
