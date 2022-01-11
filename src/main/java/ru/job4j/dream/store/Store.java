@@ -11,6 +11,8 @@ public interface Store {
     Collection<Candidate> findAllCandidates();
 
     void save(Post post);
+    void save(Candidate post);
 
     Post findById(int id);
+    Candidate findByIdCandidate(int id);
 }

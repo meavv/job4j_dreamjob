@@ -9,10 +9,11 @@ public class MainStore {
         for (Candidate candidate : store.findAllCandidates()) {
             System.out.println(candidate.getId() + " " + candidate.getName());
         }
-        store.save(new Post(3, "QWE"));
-        store.save(new Post(1, "lalalala"));
         for (Post post : store.findAllPosts()) {
             System.out.println(post.getId() + " " + post.getName());
         }
+
+        System.out.println(store.findByIdCandidate(1));
+        System.out.println(store.findById(1));
     }
 }
