@@ -72,6 +72,7 @@ public class DBStore implements Store {
         return posts;
     }
 
+
     public Collection<Candidate> findAllCandidates() {
         List<Candidate> candidates = new ArrayList<>();
         try (Connection cn = pool.getConnection();
