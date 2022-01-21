@@ -1,5 +1,6 @@
 package ru.job4j.dream.store;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
@@ -38,6 +39,7 @@ public class DbStoreTest {
         assertNull(store.findById(post.getId()));
     }
 
+    @Ignore
     @Test
     public void whenFindAllCandidate() {
         Store store = DBStore.instOf();

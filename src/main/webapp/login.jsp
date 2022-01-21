@@ -1,16 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="ru.job4j.dream.model.Post" %>
-<%@ page import="java.util.Collections" %>
-<%@ page import="java.util.Collection" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Работа мечты</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -30,29 +24,25 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Вакансии &nbsp
-                <a href="<%=request.getContextPath()%>/post/edit.jsp">Добавить вакансию</a>
+                Авторизация
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Названия</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${posts}" var="post">
-                        <tr>
-                            <td>
-                                <a href='<c:url value="/post/edit.jsp?id=${post.id}"/>'>
-                                    <i class="fa fa-edit mr-3"></i>
-                                </a>
-                                <c:out value="${post.name}"/>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                <form action="<%=request.getContextPath()%>/auth.do" method="post">
+                    <div class="form-group">
+                        <label>Почта</label>
+                        <input type="text" class="form-control" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="text" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                    <c:if test="${not empty error}">
+                        <div style="color:red; font-weight: bold; margin: 30px 0;">
+                            <c:out value="${error}"/>
+                        </div>
+                    </c:if>
+                </form>
             </div>
         </div>
     </div>
