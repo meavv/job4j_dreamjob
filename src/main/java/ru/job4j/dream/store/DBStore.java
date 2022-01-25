@@ -3,6 +3,7 @@ package ru.job4j.dream.store;
 import org.apache.commons.dbcp2.BasicDataSource;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
+import ru.job4j.dream.model.User;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -197,6 +198,16 @@ public class DBStore implements Store {
             LOG.log(Level.INFO, e.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public User findUser(int id) {
+        return null;
+    }
+
+    @Override
+    public void reg(User user) {
+
     }
 
 }

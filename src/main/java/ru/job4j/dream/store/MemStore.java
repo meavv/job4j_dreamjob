@@ -2,6 +2,7 @@ package ru.job4j.dream.store;
 
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
+import ru.job4j.dream.model.User;
 
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -10,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MemStore {
+public class MemStore implements Store {
 
     private static final MemStore INST = new MemStore();
     private static final AtomicInteger POST_ID = new AtomicInteger(4);
@@ -62,5 +63,15 @@ public class MemStore {
 
     public Candidate findByIdCandidate(int id) {
         return candidates.get(id);
+    }
+
+    @Override
+    public User findUser(int id) {
+        return null;
+    }
+
+    @Override
+    public void reg(User user) {
+
     }
 }
