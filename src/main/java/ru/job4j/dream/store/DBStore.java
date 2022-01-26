@@ -206,6 +206,11 @@ public class DBStore implements Store {
     }
 
     @Override
+    public User findUser(String email) {
+        return null;
+    }
+
+    @Override
     public void reg(User user) {
 
     }

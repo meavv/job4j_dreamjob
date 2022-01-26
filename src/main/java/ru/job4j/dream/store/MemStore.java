@@ -71,6 +71,11 @@ public class MemStore implements Store {
     }
 
     @Override
+    public User findUser(String email) {
+        return null;
+    }
+
+    @Override
     public void reg(User user) {
 
     }

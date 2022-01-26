@@ -18,5 +18,6 @@ public interface Store {
     Candidate findByIdCandidate(int id);
 
     User findUser(int id);
+    User findUser(String email);
     void reg(User user);
 }
