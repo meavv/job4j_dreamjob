@@ -17,7 +17,6 @@ public interface Store {
     Post findById(int id);
     Candidate findByIdCandidate(int id);
 
-    User findUser(int id);
+    User reg(User user);
     User findUser(String email);
-    void reg(User user);
 }
