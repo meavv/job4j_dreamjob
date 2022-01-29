@@ -17,9 +17,13 @@ public class RegServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        DBStore.instOf().reg(new User(name, email, password));
-        resp.sendRedirect(req.getContextPath() + "/");
+        if (DBStore.instOf().findUser(email) == null) {
+            DBStore.instOf().reg(new User(name, email, password));
+            resp.sendRedirect(req.getContextPath() + "/");
+        } else {
+            req.setAttribute("error", "Пользователь зарегестрирован");
+            req.getRequestDispatcher("reg.jsp").forward(req, resp);
+        }
+
     }
-
-
 }
