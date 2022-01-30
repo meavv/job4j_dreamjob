@@ -9,9 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         function validate() {
-            let  x = $(".form-control");
-            for (let i = 0; i < x; i++) {
-                alert($(x).val());
+            let rsl = $('.form-control').toArray();
+            for (let i = 0; i < rsl.length; i++) {
+                let x = $(rsl[i]);
+                if (x.val() === "") {
+                    alert("Не заполнено поле: " + x.attr("id"));
+                }
             }
             return false;
         }
