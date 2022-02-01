@@ -18,6 +18,18 @@
             }
             return false;
         }
+        function addRow() {
+            //получаем значение поля usr
+            let count = 1;
+            const name = $('#name').val();
+            const surname = $('#surname').val();
+            const sex = $('#sex').val();
+            const description = $('#description').val();
+            //получаем ссылку на последний элемент в таблице.
+            //и после него добавляем html
+            $('#table tr:last').after('<tr>' + '<td>' + count + '</td>' + '<td>' + name + '</td>' +
+                '<td>' + surname + '</td>' + '<td>' + sex + '</td>' + '<td>' + description + '</td>' +  '</tr>');
+        }
     </script>
 </head>
 <body>
@@ -41,9 +53,10 @@
         <input type="description" class="form-control" id="description" aria-describedby="description" title="Описание">
     </div>
     <button type="submit" onclick="return validate();" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-default" onclick="addRow()">Add row</button>
 </form>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="table">
     <thead>
     <tr>
         <th scope="col">#</th>
@@ -54,20 +67,6 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Саша</td>
-        <td>Пушкин</td>
-        <td>М</td>
-        <td>Поэт</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Владимир</td>
-        <td>Владмир</td>
-        <td>М</td>
-        <td>Владимир</td>
-    </tr>
     </tbody>
 </table>
 
