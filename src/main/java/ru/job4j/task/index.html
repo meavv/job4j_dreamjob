@@ -20,14 +20,14 @@
         }
         function addRow() {
             //получаем значение поля usr
-            let count = 1;
             const name = $('#name').val();
             const surname = $('#surname').val();
             const sex = $('#sex').val();
             const description = $('#description').val();
+            let rowCount = $('#table tr').length;
             //получаем ссылку на последний элемент в таблице.
             //и после него добавляем html
-            $('#table tr:last').after('<tr>' + '<td>' + count + '</td>' + '<td>' + name + '</td>' +
+            $('#table tr:last').after('<tr>' + '<td>' + rowCount + '</td>' + '<td>' + name + '</td>' +
                 '<td>' + surname + '</td>' + '<td>' + sex + '</td>' + '<td>' + description + '</td>' +  '</tr>');
         }
     </script>
