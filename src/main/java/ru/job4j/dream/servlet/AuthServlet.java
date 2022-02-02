@@ -17,13 +17,13 @@ public class AuthServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         User user = DBStore.instOf().findUser(email);
-        if (user.getPassword().equals(password)) {
+        if (user == null || !user.getPassword().equals(password)) {
+            req.setAttribute("error", "Не верный email или пароль");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+        } else {
             HttpSession sc = req.getSession();
             sc.setAttribute("user", user);
             resp.sendRedirect(req.getContextPath() + "/posts.do");
-        } else {
-            req.setAttribute("error", "Не верный email или пароль");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
     }
 }
