@@ -16,10 +16,24 @@
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Работа мечты</title>
 </head>
 <body>
+<script>
+    function validate() {
+        let rsl = $('.form-control').toArray();
+        for (let i = 0; i < rsl.length; i++) {
+            let x = $(rsl[i]);
+            if (x.val() === "") {
+                alert("Не заполнено поле: " + x.attr("name"));
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 <div class="container pt-3">
 
     <div class="row">
@@ -41,7 +55,7 @@
                         <label>Пароль</label>
                         <input type="text" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Создать</button>
+                    <button type="submit"  onclick="return validate();" class="btn btn-primary" >Создать</button>
                     <c:if test="${not empty error}">
                         <div style="color:red; font-weight: bold; margin: 30px 0;">
                             <c:out value="${error}"/>

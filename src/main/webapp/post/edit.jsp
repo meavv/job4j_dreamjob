@@ -20,6 +20,19 @@
 
     <title>Работа мечты</title>
 </head>
+<script>
+    function validate() {
+        let rsl = $('.form-control').toArray();
+        for (let i = 0; i < rsl.length; i++) {
+            let x = $(rsl[i]);
+            if (x.val() === "") {
+                alert("Не заполнено поле: " + x.attr("name"));
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 <body>
 <%
     String id = request.getParameter("id");
@@ -40,7 +53,7 @@
                         <label>Имя</label>
                         <input type="text" class="form-control" name="name" value="<%=post.getName()%>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="submit" onclick="return validate();" class="btn btn-primary">Сохранить</button>
                 </form>
             </div>
         </div>
